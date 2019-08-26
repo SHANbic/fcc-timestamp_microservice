@@ -11,6 +11,11 @@ var app = express();
 // http://expressjs.com/en/starter/static-files.html
 app.use(express.static('public'));
 
+app.get("/", function (req, res) {
+  res.sendFile(__dirname + '/views/index.html');
+});
+
+
 app.get('/api/timestamp/', function(request, response) {
   response.json({"unix":new Date(),
                "utc":new Date().toUTCString()});
